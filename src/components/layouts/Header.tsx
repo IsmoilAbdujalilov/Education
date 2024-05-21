@@ -9,7 +9,7 @@ import Slide3 from "../../assets/images/details-slide-3.jpg";
 
 function CustomNavbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [isRegister, setIsRegister] = useState(false);
+  const [isRegister] = useState(false);
   const nextRef = useRef<HTMLDivElement>(null);
 
   const toggleMenu = () => {
