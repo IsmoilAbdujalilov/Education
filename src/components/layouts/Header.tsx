@@ -1,5 +1,4 @@
-
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { Autoplay } from "swiper/modules";
 import Logo from "../../assets/images/logo.svg";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -8,9 +7,8 @@ import Slide2 from "../../assets/images/details-slide-2.jpg";
 import Slide3 from "../../assets/images/details-slide-3.jpg";
 
 function CustomNavbar() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isRegister] = useState(false);
-  const nextRef = useRef<HTMLDivElement>(null);
+  const [isRegister] = useState<boolean>(false);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -126,10 +124,6 @@ function CustomNavbar() {
                 }}
                 modules={[Autoplay]}
                 pagination={{ clickable: true }}
-                navigation={{
-                  nextEl: nextRef.current,
-                  prevEl: ".swiper-button-prev",
-                }}
               >
                 <SwiperSlide>
                   <img className="img-fluid" src={Slide1} alt="alternative" />

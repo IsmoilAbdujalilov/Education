@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const App = () => {
   const Home = lazy(() => import("./pages/Home"));
+  const Error = lazy(() => import("./pages/Error"));
 
   const routes = createBrowserRouter([
     {
@@ -15,6 +16,10 @@ const App = () => {
           element: <Home />,
         },
       ],
+    },
+    {
+      path: "*",
+      element: <Error />,
     },
   ]);
 
