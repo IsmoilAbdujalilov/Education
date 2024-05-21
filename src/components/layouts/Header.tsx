@@ -1,4 +1,4 @@
-import "swiper/css";
+
 import { useRef, useState } from "react";
 import { Autoplay } from "swiper/modules";
 import Logo from "../../assets/images/logo.svg";
