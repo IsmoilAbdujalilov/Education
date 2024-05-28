@@ -3,18 +3,17 @@ function Footer() {
     <div className="footer">
       <div className="container">
         <div className="row">
-          <div className="col-md-3">
+          <div className="col-md-4">
             <div className="footer-col first">
-              <h5>О Корсо</h5>
-              <p className="p-small">
-                Мы с энтузиазмом обучаем людей тому, как улучшить SEO для их
-                присутствие в Интернете
-              </p>
+              <h5>Brain Group</h5>
+              <p className="p-small">Belarussiya, Minsk</p>
+              <a href="mailto:e9827759@gmail.com" className="p-small">
+                e9827759@gmail.com
+              </a>
             </div>
           </div>
-          <div className="col-md-3">
+          <div className="col-md-4">
             <div className="footer-col second">
-              <h5>Ссылки</h5>
               <ul className="list-unstyled li-space-lg p-small">
                 <li className="media">
                   <i className="fas fa-square"></i>
@@ -39,9 +38,8 @@ function Footer() {
               </ul>
             </div>
           </div>
-          <div className="col-md-3">
+          <div className="col-md-4">
             <div className="footer-col third">
-              <h5>Ссылки</h5>
               <ul className="list-unstyled li-space-lg p-small">
                 <li className="media">
                   <i className="fas fa-square"></i>
@@ -66,7 +64,7 @@ function Footer() {
               </ul>
             </div>
           </div>
-          <div className="col-md-3">
+          {/* <div className="col-md-3">
             <div className="footer-col fourth">
               <h5>Социальные медиа</h5>
               <p className="p-small">
@@ -91,7 +89,7 @@ function Footer() {
                 <i className="fab fa-youtube"></i>
               </a>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

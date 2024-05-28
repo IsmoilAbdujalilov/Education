@@ -48,6 +48,76 @@ html {
   height: 100%;
 }
 
+.responsive-image {
+  height: 400px;
+}
+
+.clip-path {
+  clip-path: polygon(
+    6% 0,
+    100% 0,
+    86% 18%,
+    84% 80%,
+    100% 100%,
+    9% 100%,
+    0% 80%,
+    0% 20%
+  );
+}
+
+html,
+body {
+  scroll-behavior: smooth;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.outer-container {
+  position: relative;
+  top: 450px !important;
+}
+
+@media only screen and (max-width: 990px) {
+  .responsive-image {
+    height: 300px !important;
+  }
+  .outer-container {
+    position: relative;
+    top: 300px !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .header {
+    padding-top: 4rem;
+    padding-bottom: 20%;
+  }
+}
+
+@media (max-width: 670px) {
+  .responsive-image {
+    display: none !important;
+  }
+
+  .header {
+    padding-bottom: 10% !important;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+p {
+  font-family: sans-serif !important;
+  font-weight: 400 !important;
+}
+
 body,
 p {
   color: #555;
@@ -68,7 +138,7 @@ p {
 
 h1 {
   color: #333;
-  font: 700 2.75rem/3.375rem "Montserrat", sans-serif;
+  font: sans-serif;
 }
 
 h2 {

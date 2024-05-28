@@ -1,4 +1,41 @@
+import { useState } from "react";
+
 function RegistrationForm() {
+  const [user_email, setEmail] = useState<string>("");
+  const [user_password, setPassword] = useState<string>("");
+  const [user_lastname, setLastName] = useState<string>("");
+  const [user_firstname, setFirstName] = useState<string>("");
+
+  const sendForm = (e: any) => {
+    e.preventDefault();
+    const formData = {
+      user_firstname,
+      user_lastname,
+      user_email,
+      user_password,
+    };
+
+    fetch("https://shohsulton.uz/api/auth/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((res) => res.json())
+      .then((data: any) => {
+        if (data.statusCode === 201) {
+          localStorage.setItem("token", data.token);
+          localStorage.setItem("role", data.role);
+          localStorage.setItem("username", user_firstname);
+          alert(data.message);
+
+          window.location.reload();
+        } else {
+          alert(data.message);
+        }
+      });
+  };
   return (
     <div id="register" className="form-1">
       <div className="container">
@@ -38,68 +75,69 @@ function RegistrationForm() {
           </div>
           <div className="col-lg-6">
             <div className="form-container">
-              <form
-                id="registrationForm"
-                onSubmit={(e) => {
-                  e.preventDefault(); /* Add form submission logic here */
-                }}
-              >
+              <form id="registrationForm" onSubmit={sendForm}>
                 <div className="form-group">
                   <input
-                    type="text"
-                    className="form-control-input"
-                    id="rname"
-                    name="rname"
                     required
+                    type="text"
+                    id="user_firstname"
+                    name="user_firstname"
+                    value={user_firstname}
+                    className="form-control-input"
+                    onChange={(e) => setFirstName(e.target.value)}
                   />
-                  <label className="label-control" htmlFor="rname">
-                    Полное имя
+                  <label className="label-control" htmlFor="user_firstname">
+                    Имя
                   </label>
                   <div className="help-block with-errors"></div>
                 </div>
                 <div className="form-group">
                   <input
-                    type="email"
-                    className="form-control-input"
-                    id="remail"
-                    name="remail"
                     required
+                    type="text"
+                    id="user_lastname"
+                    name="user_lastname"
+                    value={user_lastname}
+                    className="form-control-input"
+                    onChange={(e) => setLastName(e.target.value)}
                   />
-                  <label className="label-control" htmlFor="remail">
+                  <label className="label-control" htmlFor="user_lastname">
+                    Фамилия
+                  </label>
+                  <div className="help-block with-errors"></div>
+                </div>
+                <div className="form-group">
+                  <input
+                    required
+                    type="email"
+                    id="user_email"
+                    name="user_email"
+                    value={user_email}
+                    className="form-control-input"
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                  <label className="label-control" htmlFor="user_email">
                     Адрес электронной почты
                   </label>
                   <div className="help-block with-errors"></div>
                 </div>
+
                 <div className="form-group">
                   <input
-                    type="text"
+                    required
+                    type="password"
+                    id="user_password"
+                    value={user_password}
+                    name="user_password"
                     className="form-control-input"
-                    id="rphone"
-                    name="rphone"
-                    required
+                    onChange={(e) => setPassword(e.target.value)}
                   />
-                  <label className="label-control" htmlFor="rphone">
-                    Номер телефона
+                  <label className="label-control" htmlFor="user_password">
+                    Пароль
                   </label>
                   <div className="help-block with-errors"></div>
                 </div>
-                <div className="form-group checkbox">
-                  <input
-                    type="checkbox"
-                    id="rterms"
-                    value="Agreed-to-Terms"
-                    name="rterms"
-                    required
-                  />
-                  <label htmlFor="rterms">
-                    Я прочитал и согласен с написанным Корсо
-                    <a href="privacy-policy.html">
-                      политика конфиденциальности
-                    </a>{" "}
-                    и<a href="terms-conditions.html">Условия использования</a>
-                  </label>
-                  <div className="help-block with-errors"></div>
-                </div>
+
                 <div className="form-group">
                   <button type="submit" className="form-control-submit-button">
                     РЕГИСТР

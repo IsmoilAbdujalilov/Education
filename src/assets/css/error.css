@@ -1,6 +1,15 @@
 section {
   width: 100%;
 }
+
+.text > h1 {
+  font-weight: 400 !important;
+}
+
+.text > a {
+  font-weight: 400 !important;
+}
+
 .not-found {
   display: flex;
   justify-content: center;

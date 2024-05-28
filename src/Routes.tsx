@@ -1,4 +1,3 @@
-import { Copyright } from "./components";
 import { Outlet } from "react-router-dom";
 import { Footer, Header } from "./components/layouts";
 
@@ -8,7 +7,6 @@ const Routes = () => {
       <Header />
       <Outlet />
       <Footer />
-      <Copyright />
     </>
   );
 };
